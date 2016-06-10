@@ -27,6 +27,12 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['auth
         'uses' => 'DashboardController@index'
     ]);
 
+    Route::resource("pages", "PageController");
+    Route::get('pages/delete/{id}', [
+        'as' => 'pages.delete',
+        'uses' => 'PageController@destroy',
+    ]);
+
     Route::resource("locations", "LocationController");
     Route::get('locations/delete/{id}', [
         'as' => 'locations.delete',
