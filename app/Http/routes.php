@@ -32,6 +32,12 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['auth
         'as' => 'locations.delete',
         'uses' => 'LocationController@destroy',
     ]);
+
+    Route::resource("zoneLocations", "ZoneLocationController");
+    Route::get('zoneLocations/delete/{id}', [
+        'as' => 'zoneLocations.delete',
+        'uses' => 'ZoneLocationController@destroy',
+    ]);
     
     Route::resource("users", "UserController");
     Route::get('users/delete/{id}', [

@@ -26,6 +26,11 @@
                     <i class="fa fa-globe"></i> <span>{{ trans('general.locations') }}</span>
                 </a>
             </li>
+            <li class="{{ (Request::is('admin/zoneLocations*') ? 'active' : '') }}">
+                <a href="{{ route('admin.zoneLocations.index') }}">
+                    <i class="fa fa-map"></i> <span>{{ trans('general.zone_locations') }}</span>
+                </a>
+            </li>
             <li class="{{ (Request::is('admin/users*') ? 'active' : '') }}">
                 <a href="{{ route('admin.users.index') }}">
                     <i class="fa fa-user"></i> <span>{{ trans('general.users') }}</span>
