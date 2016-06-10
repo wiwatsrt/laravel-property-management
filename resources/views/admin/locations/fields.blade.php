@@ -1,4 +1,10 @@
 <div class="row">
+
+    <div class="form-group col-sm-12{{ $errors->has('zone_location_id') ? ' has-error' : '' }}">
+        {!! Form::label('zone_location_id', trans('location.fields.zone').':') !!}
+        {!! Form::select('zone_location_id', $zones, null, ['class' => 'form-control']) !!}
+    </div>
+
     <div class="form-group col-sm-12">
         {!! Form::label('name_en', 'Name En:') !!}
         {!! Form::text('name_en', isset($location) ? $location->translate('en')->name : null, ['class' => 'form-control']) !!}

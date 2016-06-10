@@ -6,6 +6,7 @@ use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateLocationRequest;
 use App\Http\Requests\Admin\UpdateLocationRequest;
 use App\Repositories\Admin\LocationRepository;
+use App\Repositories\Admin\ZoneLocationRepository;
 use Illuminate\Http\Request;
 use Flash;
 use InfyOm\Generator\Controller\AppBaseController;
@@ -14,11 +15,12 @@ use Response;
 
 class LocationController extends AppBaseController
 {
-    /** @var  LocationRepository */
     private $locationRepository;
+    private $zoneLocationRepository;
 
-    function __construct(LocationRepository $locationRepo)
+    function __construct(ZoneLocationRepository $zoneLocationRepo, LocationRepository $locationRepo)
     {
+        $this->zoneLocationRepository = $zoneLocationRepo;
         $this->locationRepository = $locationRepo;
     }
 
@@ -44,7 +46,9 @@ class LocationController extends AppBaseController
      */
     public function create()
     {
-        return view('admin.locations.create');
+        $zones = $this->zoneLocationRepository->lists('name', 'id');
+
+        return view('admin.locations.create')->with(['zones' => $zones]);
     }
 
     /**
@@ -59,6 +63,8 @@ class LocationController extends AppBaseController
         $input = $request->all();
 
         $data = [
+            'name_en' => $input['name_en'],
+            'zone_location_id' => $input['zone_location_id'],
             'en'  => ['name' => $input['name_en']],
             'th'  => ['name' => $input['name_th']],
         ];
@@ -107,7 +113,12 @@ class LocationController extends AppBaseController
             return redirect(route('admin.locations.index'));
         }
 
-        return view('admin.locations.edit')->with('location', $location);
+        $zones = $this->zoneLocationRepository->lists('name', 'id');
+
+        return view('admin.locations.edit')->with([
+            'location' => $location,
+            'zones' => $zones
+        ]);
     }
 
     /**
@@ -130,6 +141,7 @@ class LocationController extends AppBaseController
 
         $data = [
             'name_en' => $request->input(['name_en']),
+            'zone_location_id' => $request->input(['zone_location_id']),
             'en' => ['name' => $request->input(['name_en'])],
             'th' => ['name' => $request->input(['name_th'])],
         ];

@@ -21,4 +21,5 @@ return [
     // Modules
     'users' => 'Users',
     'locations' => 'Locations',
+    'zone_locations' => 'Zone',
 ];

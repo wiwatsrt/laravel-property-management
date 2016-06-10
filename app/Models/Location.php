@@ -7,7 +7,7 @@ use Eloquent as Model;
 
 /**
  * Class Location
- * @package App\Admin
+ * @package App\Models
  */
 class Location extends Model
 {
@@ -18,6 +18,7 @@ class Location extends Model
     public $fillable = [
         'name',
         'name_en',
+        'zone_location_id'
     ];
 
     /**

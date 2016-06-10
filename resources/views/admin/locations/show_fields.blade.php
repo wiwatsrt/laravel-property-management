@@ -1,9 +1,4 @@
 <div class="form-group">
-    {!! Form::label('id', trans('location.fields.id') . ':') !!}
-    <p>{!! $location->id !!}</p>
-</div>
-
-<div class="form-group">
     {!! Form::label('name_en', trans('location.fields.name_en') . ':') !!}
     <p>{!! $location->name_en !!}</p>
 </div>
