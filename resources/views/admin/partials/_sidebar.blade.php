@@ -21,6 +21,11 @@
                     <i class="fa fa-dashboard"></i> <span>{{ trans('general.dashboard') }}</span>
                 </a>
             </li>
+            <li class="{{ (Request::is('admin/locations*') ? 'active' : '') }}">
+                <a href="{{ route('admin.locations.index') }}">
+                    <i class="fa fa-globe"></i> <span>{{ trans('general.locations') }}</span>
+                </a>
+            </li>
             <li class="{{ (Request::is('admin/users*') ? 'active' : '') }}">
                 <a href="{{ route('admin.users.index') }}">
                     <i class="fa fa-user"></i> <span>{{ trans('general.users') }}</span>

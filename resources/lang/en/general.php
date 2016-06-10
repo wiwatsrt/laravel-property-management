@@ -6,7 +6,6 @@ return [
     'setup' => 'Setup',
     'no_result' => 'No result',
     'index' => 'Index',
-    'users' => 'Users',
     'name' => 'Name',
     'mobile' => 'Mobile',
     'logout' => 'Logout',
@@ -19,4 +18,7 @@ return [
     'pdf' => 'PDF',
     'excel' => 'Excel',
     'output_type' => 'Output type',
+    // Modules
+    'users' => 'Users',
+    'locations' => 'Locations',
 ];
