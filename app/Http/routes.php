@@ -27,6 +27,12 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['auth
         'uses' => 'DashboardController@index'
     ]);
 
+    Route::resource("slideHomes", "SlideHomeController");
+    Route::get('slideHomes/delete/{id}', [
+        'as' => 'slideHomes.delete',
+        'uses' => 'SlideHomeController@destroy',
+    ]);
+
     Route::resource("pages", "PageController");
     Route::get('pages/delete/{id}', [
         'as' => 'pages.delete',

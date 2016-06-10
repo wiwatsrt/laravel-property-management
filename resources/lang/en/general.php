@@ -22,5 +22,6 @@ return [
     'users' => 'Users',
     'locations' => 'Locations',
     'zone_locations' => 'Zone',
+    'slide_homes' => 'Slide',
     'pages' => 'Pages',
 ];

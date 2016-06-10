@@ -21,6 +21,11 @@
                     <i class="fa fa-dashboard"></i> <span>{{ trans('general.dashboard') }}</span>
                 </a>
             </li>
+            <li class="{{ (Request::is('admin/slideHomes*') ? 'active' : '') }}">
+                <a href="{{ route('admin.slideHomes.index') }}">
+                    <i class="fa fa-image"></i> <span>{{ trans('general.slide_homes') }}</span>
+                </a>
+            </li>
             <li class="{{ (Request::is('admin/pages*') ? 'active' : '') }}">
                 <a href="{{ route('admin.pages.index') }}">
                     <i class="fa fa-file"></i> <span>{{ trans('general.pages') }}</span>
