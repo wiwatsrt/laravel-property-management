@@ -6,7 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "doctrine/dbal": "~2.3",
+        "laravelcollective/html": "5.2.*",
+        "barryvdh/laravel-debugbar": "^2.2",
+        "laracasts/flash": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
