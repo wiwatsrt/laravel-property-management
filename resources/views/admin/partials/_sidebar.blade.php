@@ -5,7 +5,7 @@
         <!-- user panel (Optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ asset('AdminLTE-2.3.3/dist/img/user2-160x160.jpg') }}" alt="User Image">
+                <img src="{{ asset('img/default-avatar.png') }}" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>{{ Auth::user()->name }}</p>
@@ -14,10 +14,17 @@
         </div><!-- /.user-panel -->
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+            <li class="header">Navigation</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active">
-                <a href="{{ route('admin.dashboard') }}"><span>{{ trans('admin.dashboard') }}</span></a>
+            <li class="{{ (Request::is('admin/dashboard*') ? 'active' : '') }}">
+                <a href="{{ route('admin.dashboard') }}">
+                    <i class="fa fa-dashboard"></i> <span>{{ trans('general.dashboard') }}</span>
+                </a>
+            </li>
+            <li class="{{ (Request::is('admin/users*') ? 'active' : '') }}">
+                <a href="{{ route('admin.users.index') }}">
+                    <i class="fa fa-user"></i> <span>{{ trans('general.users') }}</span>
+                </a>
             </li>
         </ul><!-- /.sidebar-menu -->
     </div><!-- /.sidebar -->

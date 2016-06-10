@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Phuket Tourist Police</title>
+    <title>PhuketOrigin</title>
     <!-- Bootstrap -->
     <link href="{{ asset('AdminLTE-2.3.3/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
@@ -46,7 +46,7 @@
 
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>Version</b> 1.0.0
+        <b>Version</b> 0.0.1
     </div>
     <strong>Copyright &copy; 2016 <a href="http://www.srisattha.com">Wiwat Srisattha</a>.</strong> All rights reserved.
 </footer>

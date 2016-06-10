@@ -20,10 +20,16 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 // Admin
-Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
+Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'DashboardController@index');
     Route::get('dashboard', [
         'as' => 'admin.dashboard',
         'uses' => 'DashboardController@index'
+    ]);
+
+    Route::resource("users", "UserController");
+    Route::get('users/delete/{id}', [
+        'as' => 'admin.users.delete',
+        'uses' => 'UserController@destroy',
     ]);
 });

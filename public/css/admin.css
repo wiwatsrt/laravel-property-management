@@ -48,7 +48,7 @@
   border-bottom: 0 solid transparent;
 }
 .skin-green .main-header .logo:hover {
-  background-color: #1f232b;
+  background-color: #05788a;
 }
 .skin-green .main-header li.user-header {
   background-color: #3a7684;
@@ -133,3 +133,14 @@
   border-bottom-left-radius: 0;
 }
 
+.navbar-nav>.user-menu>.dropdown-menu {
+  float: left;
+  width: 100%;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+}
+
+.label-required {
+  color: #c9302c;
+}
