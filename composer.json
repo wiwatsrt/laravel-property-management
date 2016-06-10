@@ -14,7 +14,8 @@
         "infyomlabs/laravel-generator": "dev-master",
         "infyomlabs/core-templates": "dev-master",
         "infyomlabs/swagger-generator": "dev-master",
-        "jlapp/swaggervel": "dev-master"
+        "jlapp/swaggervel": "dev-master",
+        "dimsav/laravel-translatable": "^5.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

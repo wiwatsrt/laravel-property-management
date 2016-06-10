@@ -165,6 +165,7 @@ return [
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
         InfyOm\CoreTemplates\CoreTemplatesServiceProvider::class,
+        Dimsav\Translatable\TranslatableServiceProvider::class,
     ],
 
     /*
