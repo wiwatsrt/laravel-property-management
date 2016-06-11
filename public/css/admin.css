@@ -35,12 +35,6 @@
   .skin-green .main-header .navbar .dropdown-menu li.divider {
     background-color: rgba(255, 255, 255, 0.1);
   }
-  .skin-green .main-header .navbar .dropdown-menu li a {
-    color: #fff;
-  }
-  .skin-green .main-header .navbar .dropdown-menu li a:hover {
-    background: #2f6f7d;
-  }
 }
 .skin-green .main-header .logo {
   background-color: #2f6f7d;
@@ -135,7 +129,7 @@
 
 .navbar-nav>.user-menu>.dropdown-menu {
   float: left;
-  width: 100%;
+  width: 170px;
   min-width: 160px;
   padding: 5px 0;
   margin: 2px 0 0;
