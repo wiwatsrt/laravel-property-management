@@ -21,6 +21,11 @@
                     <i class="fa fa-dashboard"></i> <span>{{ trans('general.dashboard') }}</span>
                 </a>
             </li>
+            <li class="{{ (Request::is('admin/properties*') ? 'active' : '') }}">
+                <a href="{{ route('admin.properties.index') }}">
+                    <i class="fa fa-home"></i> <span>{{ trans('general.properties') }}</span>
+                </a>
+            </li>
             <li class="{{ (Request::is('admin/slideHomes*') ? 'active' : '') }}">
                 <a href="{{ route('admin.slideHomes.index') }}">
                     <i class="fa fa-image"></i> <span>{{ trans('general.slide_homes') }}</span>
@@ -29,11 +34,6 @@
             <li class="{{ (Request::is('admin/pages*') ? 'active' : '') }}">
                 <a href="{{ route('admin.pages.index') }}">
                     <i class="fa fa-file"></i> <span>{{ trans('general.pages') }}</span>
-                </a>
-            </li>
-            <li class="{{ (Request::is('admin/properties*') ? 'active' : '') }}">
-                <a href="{{ route('admin.properties.index') }}">
-                    <i class="fa fa-home"></i> <span>{{ trans('general.properties') }}</span>
                 </a>
             </li>
             <li class="{{ (Request::is('admin/locations*') ? 'active' : '') }}">
@@ -49,6 +49,11 @@
             <li class="{{ (Request::is('admin/users*') ? 'active' : '') }}">
                 <a href="{{ route('admin.users.index') }}">
                     <i class="fa fa-user"></i> <span>{{ trans('general.users') }}</span>
+                </a>
+            </li>
+            <li class="{{ (Request::is('admin/settings*') ? 'active' : '') }}">
+                <a href="{{ route('admin.settings.index') }}">
+                    <i class="fa fa-cog"></i> <span>{{ trans('general.settings') }}</span>
                 </a>
             </li>
         </ul><!-- /.sidebar-menu -->

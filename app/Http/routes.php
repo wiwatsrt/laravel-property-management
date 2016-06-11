@@ -62,4 +62,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['auth
         'as' => 'admin.users.delete',
         'uses' => 'UserController@destroy',
     ]);
+
+    Route::get('settings', ['as' => 'admin.settings.index', 'uses' => 'SettingController@index',]);
+    Route::post('settings/update', ['as' => 'admin.settings.update', 'uses' => 'SettingController@update',]);
 });

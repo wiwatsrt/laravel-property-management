@@ -25,4 +25,5 @@ return [
     'slide_homes' => 'Slide',
     'pages' => 'Pages',
     'properties' => 'Property',
+    'settings' => 'Settings',
 ];

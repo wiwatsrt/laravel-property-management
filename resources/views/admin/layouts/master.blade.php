@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>PhuketOrigin</title>
+    <title>{{ config('settings.headerTitleText') }}</title>
     <!-- Bootstrap -->
     <link href="{{ asset('AdminLTE-2.3.3/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
