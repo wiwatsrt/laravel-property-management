@@ -29,31 +29,31 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['auth
 
     Route::resource("slideHomes", "SlideHomeController");
     Route::get('slideHomes/delete/{id}', [
-        'as' => 'slideHomes.delete',
+        'as' => 'admin.slideHomes.delete',
         'uses' => 'SlideHomeController@destroy',
     ]);
 
     Route::resource("pages", "PageController");
     Route::get('pages/delete/{id}', [
-        'as' => 'pages.delete',
+        'as' => 'admin.pages.delete',
         'uses' => 'PageController@destroy',
     ]);
 
     Route::resource("properties", "PropertyController");
     Route::get('properties/delete/{id}', [
-        'as' => 'properties.delete',
+        'as' => 'admin.properties.delete',
         'uses' => 'PropertyController@destroy',
     ]);
 
     Route::resource("locations", "LocationController");
     Route::get('locations/delete/{id}', [
-        'as' => 'locations.delete',
+        'as' => 'admin.locations.delete',
         'uses' => 'LocationController@destroy',
     ]);
 
     Route::resource("zoneLocations", "ZoneLocationController");
     Route::get('zoneLocations/delete/{id}', [
-        'as' => 'zoneLocations.delete',
+        'as' => 'admin.zoneLocations.delete',
         'uses' => 'ZoneLocationController@destroy',
     ]);
     
