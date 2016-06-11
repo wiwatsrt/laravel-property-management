@@ -24,4 +24,5 @@ return [
     'zone_locations' => 'Zone',
     'slide_homes' => 'Slide',
     'pages' => 'Pages',
+    'properties' => 'Property',
 ];

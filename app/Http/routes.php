@@ -39,6 +39,12 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware' => ['auth
         'uses' => 'PageController@destroy',
     ]);
 
+    Route::resource("properties", "PropertyController");
+    Route::get('properties/delete/{id}', [
+        'as' => 'properties.delete',
+        'uses' => 'PropertyController@destroy',
+    ]);
+
     Route::resource("locations", "LocationController");
     Route::get('locations/delete/{id}', [
         'as' => 'locations.delete',

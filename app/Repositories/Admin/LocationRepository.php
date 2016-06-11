@@ -21,4 +21,9 @@ class LocationRepository extends BaseRepository
     {
         return Location::class;
     }
+
+    public function lists($column, $key = null)
+    {
+        return $this->makeModel()->listsTranslations('name')->orderBy('name')->lists('name', 'id');
+    }
 }

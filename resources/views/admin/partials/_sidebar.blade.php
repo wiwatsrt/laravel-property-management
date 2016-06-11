@@ -31,6 +31,11 @@
                     <i class="fa fa-file"></i> <span>{{ trans('general.pages') }}</span>
                 </a>
             </li>
+            <li class="{{ (Request::is('admin/properties*') ? 'active' : '') }}">
+                <a href="{{ route('admin.properties.index') }}">
+                    <i class="fa fa-home"></i> <span>{{ trans('general.properties') }}</span>
+                </a>
+            </li>
             <li class="{{ (Request::is('admin/locations*') ? 'active' : '') }}">
                 <a href="{{ route('admin.locations.index') }}">
                     <i class="fa fa-globe"></i> <span>{{ trans('general.locations') }}</span>
