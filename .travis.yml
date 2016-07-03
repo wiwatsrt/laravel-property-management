@@ -7,8 +7,10 @@ php:
   - hhvm
 
 before_install:
-  - travis_retry composer self-update
+  - mkdir bootstrap/cache
+  - cp .env.example .env
   - php artisan key:generate
+  - travis_retry composer self-update
 
 install:
   - travis_retry composer install --no-interaction --prefer-dist
