@@ -7,7 +7,8 @@ php:
   - hhvm
 
 before_install:
-  - travis_retry composer self-update
+  - travis_retry composer self-update.
+  - php artisan key:generate
 
 install:
   - travis_retry composer install --no-interaction --prefer-dist
