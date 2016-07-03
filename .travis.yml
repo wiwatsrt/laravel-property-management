@@ -7,9 +7,8 @@ php:
   - hhvm
 
 before_install:
-  - mkdir bootstrap/cache
-  - cp .env.example .env
-  - php artisan key:generate
+  - travis_retry cp .env.example .env
+  - travis_retry php artisan key:generate
   - travis_retry composer self-update
 
 install:
