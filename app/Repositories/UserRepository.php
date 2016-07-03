@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 
 class UserRepository extends BaseRepository
 {

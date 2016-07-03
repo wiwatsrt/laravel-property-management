@@ -4,7 +4,7 @@ namespace App\Repositories\Admin;
 
 use App\Models\Setting;
 use Illuminate\Database\QueryException;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 use PDOException;
 
 class SettingRepository extends BaseRepository

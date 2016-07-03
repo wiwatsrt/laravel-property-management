@@ -11,10 +11,7 @@
         "laravelcollective/html": "5.2.*",
         "barryvdh/laravel-debugbar": "^2.2",
         "laracasts/flash": "^2.0",
-        "infyomlabs/laravel-generator": "dev-master",
-        "infyomlabs/core-templates": "dev-master",
-        "infyomlabs/swagger-generator": "dev-master",
-        "jlapp/swaggervel": "dev-master",
+        "prettus/l5-repository": "^2.6",
         "dimsav/laravel-translatable": "^5.6"
     },
     "require-dev": {

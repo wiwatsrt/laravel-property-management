@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Flash;
-use InfyOm\Generator\Controller\AppBaseController;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class UserController extends AppBaseController
+class UserController extends Controller
 {
     /** @var  UserRepository */
     private $userRepository;

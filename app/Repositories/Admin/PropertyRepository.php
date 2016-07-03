@@ -3,7 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\Property;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 
 class PropertyRepository extends BaseRepository
 {

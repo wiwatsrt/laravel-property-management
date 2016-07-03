@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateSlideHomeRequest;
 use App\Http\Requests\Admin\UpdateSlideHomeRequest;
@@ -9,11 +10,10 @@ use App\Repositories\Admin\SlideHomeRepository;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\File;
-use InfyOm\Generator\Controller\AppBaseController;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class SlideHomeController extends AppBaseController
+class SlideHomeController extends Controller
 {
     /** @var  SlideHomeRepository */
     private $slideHomeRepository;

@@ -3,7 +3,7 @@
 namespace App\Repositories\Admin;
 
 use App\Models\ZoneLocation;
-use InfyOm\Generator\Common\BaseRepository;
+use App\Repositories\BaseRepository;
 
 class ZoneLocationRepository extends BaseRepository
 {

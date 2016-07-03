@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreatePageRequest;
 use App\Http\Requests\Admin\UpdatePageRequest;
 use App\Repositories\Admin\PageRepository;
 use Illuminate\Http\Request;
 use Flash;
-use InfyOm\Generator\Controller\AppBaseController;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class PageController extends AppBaseController
+class PageController extends Controller
 {
     /** @var  PageRepository */
     private $pageRepository;

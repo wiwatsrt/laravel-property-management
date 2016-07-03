@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateZoneLocationRequest;
 use App\Http\Requests\Admin\UpdateZoneLocationRequest;
 use App\Repositories\Admin\ZoneLocationRepository;
 use Illuminate\Http\Request;
 use Flash;
-use InfyOm\Generator\Controller\AppBaseController;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class ZoneLocationController extends AppBaseController
+class ZoneLocationController extends Controller
 {
     /** @var  ZoneLocationRepository */
     private $zoneLocationRepository;

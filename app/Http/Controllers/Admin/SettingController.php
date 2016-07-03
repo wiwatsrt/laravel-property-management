@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Repositories\Admin\SettingRepository;
 use Illuminate\Http\Request;
 use Flash;
-use InfyOm\Generator\Controller\AppBaseController;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class SettingController extends AppBaseController
+class SettingController extends Controller
 {
     /** @var  SettingRepository */
     private $settingRepository;

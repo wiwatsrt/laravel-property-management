@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreateLocationRequest;
 use App\Http\Requests\Admin\UpdateLocationRequest;
@@ -9,11 +10,10 @@ use App\Repositories\Admin\LocationRepository;
 use App\Repositories\Admin\ZoneLocationRepository;
 use Illuminate\Http\Request;
 use Flash;
-use InfyOm\Generator\Controller\AppBaseController;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class LocationController extends AppBaseController
+class LocationController extends Controller
 {
     private $locationRepository;
     private $zoneLocationRepository;

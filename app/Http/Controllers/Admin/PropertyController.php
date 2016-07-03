@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin;
 use App\Http\Requests\Admin\CreatePropertyRequest;
 use App\Http\Requests\Admin\UpdatePropertyRequest;
@@ -15,11 +16,10 @@ use App\Support\PropertyType;
 use App\Support\PropertyView;
 use Illuminate\Http\Request;
 use Flash;
-use InfyOm\Generator\Controller\AppBaseController;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class PropertyController extends AppBaseController
+class PropertyController extends Controller
 {
     /** @var  PropertyRepository */
     private $propertyRepository;
