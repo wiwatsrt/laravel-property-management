@@ -17,9 +17,9 @@ class CreatePropertyTranslationsTable extends Migration
             $table->increments('id');
             $table->integer('property_id')->unsigned();
             $table->string('name');
-            $table->string('detail');
-            $table->string('key_feature');
-            $table->string('location');
+            $table->text('detail');
+            $table->text('key_feature');
+            $table->text('location_detail');
             $table->string('locale')->index();
 
             $table->unique(['property_id','locale']);

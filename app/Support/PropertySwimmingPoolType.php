@@ -2,26 +2,13 @@
 
 namespace App\Support;
 
-class PropertySwimmingPoolType
+class PropertySwimmingPoolType extends AbstractSelectList
 {
-    protected static $SwimmingPoolTypes = [
+    protected static $languageKey = 'property.swimming_pool_types';
+    
+    protected static $dropdownArray = [
         '0' => 'none',
         '1' => 'share',
         '2' => 'private',
     ];
-
-    /**
-     * Returns an array of statuses to populate dropdown list.
-     *
-     * @return array
-     */
-    public static function lists()
-    {
-        $SwimmingPoolTypes = static::$SwimmingPoolTypes;
-        foreach ($SwimmingPoolTypes as $key => $type) {
-            $types[$key] = trans('property.swimming_pool_types.' . $type);
-        }
-
-        return $types;
-    }
 }

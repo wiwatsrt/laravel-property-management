@@ -19,6 +19,7 @@ class CreatePropertiesTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->integer('view_id')->unsigned();
             $table->integer('ownership')->unsigned();
+            $table->string('image')->nullable();
             $table->tinyInteger('bedrooms');
             $table->tinyInteger('bathrooms');
             $table->tinyInteger('parking');

@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Support\PropertyCategory;
+use App\Support\PropertyType;
 use Dimsav\Translatable\Translatable;
 use Eloquent as Model;
+use App\Support\CurrencyFormatter;
 
 /**
  * Class Property
@@ -14,11 +17,15 @@ class Property extends Model
     use Translatable;
 
     public $table = "properties";
+    
+    public $translatedAttributes = ['name', 'detail', 'key_feature', 'location_detail'];
 
-    const CREATED_AT = 'created_at';
-    const UPDATED_AT = 'updated_at';
-
-    public $translatedAttributes = ['name', 'detail', 'key_feature', 'location'];
+    /**
+     * The relations to eager load on every query.
+     *
+     * @var array
+     */
+    //protected $with = ['translations'];
 
     public $fillable = [
         'location_id',
@@ -26,6 +33,7 @@ class Property extends Model
         'category_id',
         'view_id',
         'ownership',
+        'image',
         'bedrooms',
         'bathrooms',
         'parking',
@@ -34,6 +42,7 @@ class Property extends Model
         'land_area',
         'building_area',
         'price',
+        'name',
         'detail',
         'key_feature',
         'location'
@@ -64,9 +73,39 @@ class Property extends Model
      * @var array
      */
     public static $rules = [
+        'image' => 'required',
         'land_area' => 'required',
         'building_area' => 'required',
         'bedrooms' => 'required',
         'bathrooms' => 'required'
     ];
+
+    public function getFormattedPriceAttribute()
+    {
+        return CurrencyFormatter::thousandsCurrencyFormat($this->attributes['price']);
+    }
+
+    public function getImageUrlAttribute()
+    {
+        if ($this->attributes['image'] != null) {
+            return asset('uploads/property/' . $this->attributes['image']);
+        }else{
+            return '';
+        }
+    }
+
+    public function getTypeAttribute()
+    {
+        return PropertyType::getText($this->attributes['type_id']);
+    }
+
+    public function getCategoryAttribute()
+    {
+        return PropertyCategory::getText($this->attributes['category_id']);
+    }
+
+    public function location()
+    {
+        return $this->belongsTo('App\Models\Location');
+    }
 }

@@ -47,4 +47,9 @@ class Location extends Model
         'name_en' => 'required',
         'name_th' => 'required'
     ];
+
+    public function properties()
+    {
+        return $this->hasMany('App\Models\Property');
+    }
 }

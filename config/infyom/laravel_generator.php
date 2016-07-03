@@ -106,7 +106,7 @@ return [
 
     'options' => [
 
-        'softDelete' => true,
+        'softDelete' => false,
 
         'tables_searchable_default' => false,
     ],
@@ -120,9 +120,9 @@ return [
 
     'add_on' => [
 
-        'swagger'       => true,
+        'swagger'       => false,
 
-        'tests'         => true,
+        'tests'         => false,
 
         'datatables'    => false,
 

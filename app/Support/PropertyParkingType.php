@@ -2,26 +2,13 @@
 
 namespace App\Support;
 
-class PropertyParkingType
+class PropertyParkingType extends AbstractSelectList
 {
-    protected static $ParkingTypes = [
+    protected static $languageKey = 'property.parking_types';
+
+    protected static $dropdownArray = [
         '0' => 'none',
         '1' => 'share',
         '2' => 'private',
     ];
-
-    /**
-     * Returns an array of statuses to populate dropdown list.
-     *
-     * @return array
-     */
-    public static function lists()
-    {
-        $ParkingTypes = static::$ParkingTypes;
-        foreach ($ParkingTypes as $key => $type) {
-            $types[$key] = trans('property.parking_types.' . $type);
-        }
-
-        return $types;
-    }
 }

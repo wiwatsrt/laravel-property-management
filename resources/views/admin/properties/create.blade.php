@@ -15,7 +15,7 @@
             <h1 class="box-title">{{ trans('property.create_form') }}</h1>
         </div>
         <div class="box-body">
-            {!! Form::open(['route' => 'admin.properties.store']) !!}
+            {!! Form::open(['route' => 'admin.properties.store', 'files' => true]) !!}
             @include('admin.properties.fields')
             {!! Form::close() !!}
         </div>

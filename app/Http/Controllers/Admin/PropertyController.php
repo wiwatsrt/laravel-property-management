@@ -40,7 +40,7 @@ class PropertyController extends AppBaseController
     public function index(Request $request)
     {
         $this->propertyRepository->pushCriteria(new RequestCriteria($request));
-        $properties = $this->propertyRepository->paginate(15);
+        $properties = $this->propertyRepository->with('location')->paginate(15);
 
         return view('admin.properties.index')
             ->with('properties', $properties);
@@ -53,22 +53,22 @@ class PropertyController extends AppBaseController
      */
     public function create()
     {
-        $types = PropertyType::lists();
         $categories = PropertyCategory::lists();
-        $views = PropertyView::lists();
-        $ownerships = PropertyOwnership::lists();
-        $swimmingPoolTypes = PropertySwimmingPoolType::lists();
-        $parkingTypes = PropertyParkingType::lists();
         $locations = $this->locationRepository->lists('name', 'id');
-
+        $ownerships = PropertyOwnership::lists();
+        $parkingTypes = PropertyParkingType::lists(true);
+        $swimmingPoolTypes = PropertySwimmingPoolType::lists(true);
+        $types = PropertyType::lists();
+        $views = PropertyView::lists();
+        
         return view('admin.properties.create')->with([
-            'locations' => $locations,
-            'types' => $types,
             'categories' => $categories,
-            'swimmingPoolTypes' => $swimmingPoolTypes,
+            'locations' => $locations,
+            'ownerships' => $ownerships,
             'parkingTypes' => $parkingTypes,
-            'views' => $views,
-            'ownerships' => $ownerships
+            'swimmingPoolTypes' => $swimmingPoolTypes,
+            'types' => $types,
+            'views' => $views
         ]);
     }
 
@@ -82,6 +82,12 @@ class PropertyController extends AppBaseController
     public function store(CreatePropertyRequest $request)
     {
         $input = $request->all();
+        $input['en'] = [
+            'name' => $input['name_en'],
+            'detail' => $input['detail_en'],
+            'key_feature' => $input['key_feature_en'],
+            'location_detail' => $input['location_detail_en'],
+        ];
 
         $property = $this->propertyRepository->create($input);
 
@@ -126,23 +132,24 @@ class PropertyController extends AppBaseController
 
             return redirect(route('admin.properties.index'));
         }
-        $types = PropertyType::lists();
+
         $categories = PropertyCategory::lists();
-        $views = PropertyView::lists();
-        $swimmingPoolTypes = PropertySwimmingPoolType::lists();
-        $parkingTypes = PropertyParkingType::lists();
-        $ownerships = PropertyOwnership::lists();
         $locations = $this->locationRepository->lists('name', 'id');
+        $ownerships = PropertyOwnership::lists();
+        $parkingTypes = PropertyParkingType::lists(true);
+        $swimmingPoolTypes = PropertySwimmingPoolType::lists(true);
+        $types = PropertyType::lists();
+        $views = PropertyView::lists();
 
         return view('admin.properties.edit')->with([
-            'property' => $property,
-            'locations' => $locations,
-            'types' => $types,
             'categories' => $categories,
-            'swimmingPoolTypes' => $swimmingPoolTypes,
+            'locations' => $locations,
+            'ownerships' => $ownerships,
             'parkingTypes' => $parkingTypes,
+            'swimmingPoolTypes' => $swimmingPoolTypes,
+            'types' => $types,
             'views' => $views,
-            'ownerships' => $ownerships
+            'property' => $property,
         ]);
     }
 
@@ -164,7 +171,28 @@ class PropertyController extends AppBaseController
             return redirect(route('admin.properties.index'));
         }
 
-        $property = $this->propertyRepository->update($request->all(), $id);
+        $input = $request->all();
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $destinationPath = 'uploads/property/';
+            // Remove old file
+            if ($property->image) {
+                \File::delete($destinationPath . $property->image);
+            }
+            $fileName = sha1($file->getClientOriginalName() . time()) . '.' . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $fileName);
+            $input['image'] = $fileName;
+        }
+
+        $input['en'] = [
+            'name' => $input['name_en'],
+            'detail' => $input['detail_en'],
+            'key_feature' => $input['key_feature_en'],
+            'location_detail' => $input['location_detail_en'],
+        ];
+
+        $property = $this->propertyRepository->update($input, $id);
 
         Flash::success(trans('messages.update.success'));
 
