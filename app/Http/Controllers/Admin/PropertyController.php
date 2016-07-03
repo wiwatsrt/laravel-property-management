@@ -82,6 +82,15 @@ class PropertyController extends Controller
     public function store(CreatePropertyRequest $request)
     {
         $input = $request->all();
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $destinationPath = 'uploads/property/';
+            $fileName = sha1($file->getClientOriginalName() . time()) . '.' . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $fileName);
+            $input['image'] = $fileName;
+        }
+
         $input['en'] = [
             'name' => $input['name_en'],
             'detail' => $input['detail_en'],
