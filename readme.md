@@ -1,5 +1,7 @@
 # Property Management by Laravel
 
+[![Build Status](https://travis-ci.org/wiwatsrt/laravel-property-management.svg?branch=master)](https://travis-ci.org/wiwatsrt/laravel-property-management)
+
 Web application for Agency Property for Property Management
  
 ## Feature
